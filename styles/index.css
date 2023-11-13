@@ -15,7 +15,7 @@ ul {
   width: 100%;
   height: 60px;
   font-size: 18px;
-  position: fixed;
+  position: absolute;
   font-weight: 600;
   backdrop-filter: blur(3px); 
   z-index: 100000;
@@ -104,22 +104,22 @@ ul {
   gap: 15px;
 }
 
-.groups .groups__element {  
-  padding: 40px 25px 25px 25px;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+.groups .groups__link {
+  display: flex;
+  flex-direction: column;
 }
 
 .groups .groups__image {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  width: 250px;
+  height: 265px;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
 }
 
 .groups .groups__text {
   font-size: 18px;
+  padding: 20px 0 0 0;
+  font-weight: 600;
 }
 
 .about {
@@ -150,41 +150,87 @@ ul {
   line-height: 1.75;
 }
 
-.map {
-  padding: 80px 25px 40px 25px;
-  min-height: calc(100vh - 40px);
-  background-color: #353535;
+.questions-answers {
+  padding: 80px 25px;
 }
 
-.map .map__title {
+.questions-answers .questions-answers__title {
   font-size: 24px;
   text-align: center;
   margin-bottom: 60px;
+}
+
+.questions-answers .questions-answers__details {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0;
+}
+
+.questions-answers .questions-answers__question {
+  width: 100%;
+  padding: 25px;
+  list-style: none;
+  font-weight: 600;
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.questions-answers .questions-answers__question::after {
+  content: '∟';
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  transform: rotate(-45deg);
+  line-height: 12px;
+  position: absolute;
+  right: 25px;
+}
+
+.questions-answers .questions-answers__details[open] .questions-answers__question::after {
+  transform: rotate(135deg);
+  line-height: 29px;
+  right: 21px;
+}
+
+.questions-answers .questions-answers__answer {
+  padding: 25px;
+}
+
+.questions-answers .questions-answers__details:nth-child(6) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: #353535;
+  padding: 20px 25px 20px 25px;
+}
+
+.footer .footer__title {
+  font-size: 18px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
-.map .map__wrapper {
-  display: flex;
-  justify-content: space-around;
-  gap: 80px;
+.footer .footer__column {
+  margin-bottom: 20px;
 }
 
-.map .map__number-title,
-.map .map__address-title {
-  font-size: 18px;
-  margin-bottom: 10px;
+.footer .footer__number-title,
+.footer .footer__address-title {
+  font-size: 14px;
+  margin-bottom: 5px;
   color: #969595;
 }
 
-.map .map__number,
-.map .map__address {
+.footer .footer__number,
+.footer .footer__address {
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 5px;
   color: #fff;
 }
 
-.map .map__number {
+.footer .footer__number {
   width: fit-content;
   border-bottom-color: transparent;
   position: relative;
@@ -192,7 +238,7 @@ ul {
   padding-bottom: 2px;
 }
 
-.map .map__number::before {
+.footer .footer__number::before {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -204,28 +250,22 @@ ul {
   border-bottom: 1px dashed #fff;
 }
 
-.map .map__number:hover::before {
+.footer .footer__number:hover::before {
   width: 100%;
 }
 
-.map .map__address {
+.footer .footer__address {
   font-style: normal;
 }
 
-.map .map__address b {
+.footer .footer__address b {
   color: #fff;
 }
 
-.map .map__yandex {
+.footer .footer__yandex {
   max-width: 900px;
   height: 400px;
   width: calc(100vw - 250px);
-}
-
-.footer {
-  text-align: center;
-  height: 40px;
-  background-color: #353535;
 }
 
 .footer .footer__text {
@@ -235,11 +275,11 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
-  .map .map__wrapper {
+  .footer .footer__wrapper {
     display: block;
   }
   
-  .map .map__yandex {
+  .footer .footer__yandex {
     max-width: 100%;
     width: 100%;
     height: 50vh;
