@@ -1,0 +1,247 @@
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+} 
+
+.header {
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+  position: fixed;
+  font-weight: 600;
+  backdrop-filter: blur(3px); 
+  z-index: 100000;
+}
+
+.header .header__link-list {
+  height: 60px;
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  align-items: center;
+  margin: 0 25px;
+}
+
+.header .header__link {
+  transition-duration: 150ms;
+  border-bottom-color: transparent;
+  display: inline-block;
+  position: relative;
+  color: #000;
+}
+
+.header .header__link::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.header .header__link:hover::before {
+  width: 100%;
+}
+
+.previev {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../assets/images/previev-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.previev .previev__title {
+  font-size: 42px;
+  margin: 0 25px;
+}
+
+.previev .previev__description {
+  font-size: 18px;
+}
+
+.previev .previev__link {
+  width: fit-content;
+  font-size: 18px;
+  background-color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.groups {
+  padding: 80px 25px;
+}
+
+.groups .groups__title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.groups .groups__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.groups .groups__element {  
+  padding: 40px 25px 25px 25px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.groups .groups__image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.groups .groups__text {
+  font-size: 18px;
+}
+
+.about {
+  text-align: center;
+  padding: 80px 25px;
+  background-image: url('../assets/images/about-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.about .about__title {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.about .about__description {
+  font-size: 18px;
+  width: 75%;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 1.75;
+}
+
+.map {
+  padding: 80px 25px 40px 25px;
+  min-height: calc(100vh - 40px);
+  background-color: #353535;
+}
+
+.map .map__title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+.map .map__wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 80px;
+}
+
+.map .map__number-title,
+.map .map__address-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #969595;
+}
+
+.map .map__number,
+.map .map__address {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.map .map__number {
+  width: fit-content;
+  border-bottom-color: transparent;
+  position: relative;
+  border-bottom: 1px dashed #fff;
+  padding-bottom: 2px;
+}
+
+.map .map__number::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+  border-bottom: 1px dashed #fff;
+}
+
+.map .map__number:hover::before {
+  width: 100%;
+}
+
+.map .map__address {
+  font-style: normal;
+}
+
+.map .map__address b {
+  color: #fff;
+}
+
+.map .map__yandex {
+  max-width: 900px;
+  height: 400px;
+  width: calc(100vw - 250px);
+}
+
+.footer {
+  text-align: center;
+  height: 40px;
+  background-color: #353535;
+}
+
+.footer .footer__text {
+  color: #969595;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .map .map__wrapper {
+    display: block;
+  }
+  
+  .map .map__yandex {
+    max-width: 100%;
+    width: 100%;
+    height: 50vh;
+  }
+}
